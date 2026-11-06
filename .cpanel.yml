@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/pk5ixxuh5zp9/public_html/dev.yarviofficial.com
+    - /bin/cp -R * $DEPLOYPATH

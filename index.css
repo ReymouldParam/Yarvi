@@ -18,6 +18,8 @@
   font-size: var(--font-size-small);
   font-weight: 400;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .btn--dark {
@@ -26,14 +28,19 @@
   border-color: #000;
 }
 
-/* =================================
-   HERO
-================================= */
+/* HERO */
 
 .head-container {
-  width: 93%;
+  --hero-gutter: clamp(
+    1.5rem,
+    5vw,
+    4.5rem
+  ); /* space between the border and the content */
+
+  width: 100%;
   min-height: 96vh;
   margin-inline: auto;
+  padding: var(--space-xl) var(--hero-gutter) var(--space-3xl);
   border: 1px solid var(--color-primary);
   border-top: none;
   border-left: none;
@@ -41,125 +48,246 @@
   border-bottom-right-radius: var(--radius-xl);
   overflow: hidden;
 }
-
-.head-container > hr {
-  width: var(--container-width);
-  max-width: var(--container-max-width);
-  margin: var(--space-sm) auto 0;
-  border: none;
-  border-top: 1px solid var(--color-border);
-}
-
 .banner-content {
-  min-height: 75vh;
-  padding: var(--space-xl);
-  margin: 2px auto 0;
   display: grid;
-  grid-template-columns: 32% 43% 25%;
-  align-items: center;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1.25fr);
+  align-items: stretch;
+  gap: var(--space-xl);
+  width: 100%;
+  padding-top: var(--space-2xl);
 }
 
-/* left */
 .banner-section1 {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding-bottom: var(--space-3xl);
 }
 
 .banner-section1 h1 {
-  font-size: var(--font-size-h1);
-  line-height: 1.05;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-3xl);
+  font-size: clamp(2.75rem, 5.3vw, 4.5rem);
+  line-height: 1.15;
 }
-
+.banner-section1 h1 span,
+.hero-collection-title .second-span {
+  font-weight: bold;
+}
 .banner-section1 p {
-  width: 85%;
-  line-height: 1.6;
-  margin-bottom: var(--space-lg);
+  max-width: 18rem;
+  line-height: 1.5;
 }
 
-/* center */
+.banner-section1 .btn {
+  min-width: 13.875rem;
+  min-height: 3.25rem;
+  margin-top: auto;
+  border-color: var(--color-primary);
+  font-size: var(--font-size-base);
+}
+
+/* ---------- center: model, X card and shadow ---------- */
 .banner-section2 {
-  width: 100%;
-  height: 75vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background-image: url("images/bg-header.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50% auto;
+  align-items: flex-end;
+}
+
+/* one grid cell, three layers: card (back), shadow, model (front) */
+.bouncing-image-container {
+  --head-offset: 18%;
+  display: grid;
+}
+
+.bouncing-image-container::before,
+.bouncing-image-container::after {
+  content: "";
+  grid-area: 1 / 1;
+}
+
+/* card with the X */
+.bouncing-image-container::before {
+  order: -2;
+  justify-self: start; /* left edge lines up with the model's left edge, so his head sits in the card's middle */
+  align-self: start;
+  width: 70%;
+  aspect-ratio: 1 / 1;
+  background: url("images/bg-header.png") no-repeat center top / contain;
+}
+
+/* shadow stays under the shoes; only its strength changes */
+.bouncing-image-container::after {
+  order: -1;
+  justify-self: center;
+  align-self: end;
+  width: 55%;
+  height: 1.25rem;
+  margin-bottom: -0.4rem;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgb(0 0 0 / 0.55) 0%,
+    rgb(0 0 0 / 0) 70%
+  );
+  filter: blur(3px);
+  animation: shadow-fade 3s ease-in-out infinite;
+  margin-inline: auto;
 }
 
 .bouncing-image {
+  grid-area: 1 / 1;
+  align-self: end;
   display: block;
-  width: 90%;
-  height: 100%;
+  width: auto;
+  max-width: none;
+  height: clamp(24rem, 70vh, 40rem);
+  margin-top: var(--head-offset); /* pushes the model down inside the card */
   object-fit: contain;
   animation: step-bounce 3s ease-in-out infinite;
 }
 
-/* right */
+@keyframes step-bounce {
+  0% {
+    transform: translateY(0);
+    animation-timing-function: ease-out; /* slows down as it reaches the top */
+  }
+  35%,
+  50% {
+    transform: translateY(-5vh);
+    animation-timing-function: ease-in; /* speeds up as it comes down */
+  }
+  70%,
+  100% {
+    transform: translateY(0); /* back on its spot, then rests */
+  }
+}
+
+/* same stops, so the shadow stays in sync with the model */
+@keyframes shadow-fade {
+  0% {
+    opacity: 0.9; /* model on the ground: darker */
+    transform: scaleX(1);
+    animation-timing-function: ease-out;
+  }
+  35%,
+  50% {
+    opacity: 0.35; /* model at the top: lighter (delete the scaleX lines to keep the size fixed) */
+    transform: scaleX(0.85);
+    animation-timing-function: ease-in;
+  }
+  75%,
+  100% {
+    opacity: 0.9;
+    transform: scaleX(1);
+  }
+}
+
+/* ---------- right: photos, title, socials ---------- */
 .banner-section3 {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding-bottom: var(--space-3xl);
 }
 
 .image-container {
   display: flex;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-lg);
+  justify-content: flex-end;
+  gap: var(--space-lg);
 }
 
 .image-container img {
-  flex: 1;
+  flex: 1 1 0;
   min-width: 0;
-  aspect-ratio: 1 / 1;
+  max-width: 11.125rem;
+  aspect-ratio: 178 / 210;
   object-fit: cover;
   border-radius: var(--radius-xl);
 }
 
-.banner-section3 h1 {
-  font-size: var(--font-size-h1);
-  font-weight: 400;
-  line-height: 1.1;
-  margin-bottom: var(--space-sm);
+.hero-collection-title {
+  font-size: clamp(2.75rem, 5.3vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.05;
 }
 
-.banner-section3 p {
-  width: 90%;
-  font-size: var(--font-size-small);
-  line-height: 1.5;
+.hero-collection-title .first-span {
+  display: block;
+  font-size: clamp(1.5rem, 2.5rem, 3.5rem);
+  /* line-height: 1.2; */
+}
+
+.paras p {
+  max-width: 16rem;
+  margin: var(--space-md) 0 0 var(--space-md);
+  font-size: 0.75rem;
+  line-height: 1.4;
 }
 
 .socials {
   display: flex;
   justify-content: flex-end;
-  gap: var(--space-xl);
-  margin-top: var(--space-xl);
-  font-size: var(--font-size-h2);
+  gap: var(--space-2xl);
+  margin-top: auto; /* pinned to the bottom of the column */
+  list-style: none;
+  font-size: 1.25rem;
 }
 
-@keyframes step-bounce {
-  0%,
-  25% {
-    transform: translateY(0);
-  }
-  50%,
-  75% {
-    transform: translateY(-2vh);
-  }
-  100% {
-    transform: translateY(0);
-  }
+.socials a {
+  display: block;
+  color: inherit;
+  transition: opacity 0.15s ease;
+}
+
+.socials a:hover,
+.socials a:focus-visible {
+  opacity: 0.6;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bouncing-image {
+  .bouncing-image,
+  .bouncing-image-container::after {
     animation: none;
+  }
+}
+
+/* ---------- tablet and mobile: stacked ---------- */
+@media (max-width: 1024px) {
+  .banner-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+  }
+
+  .banner-section1 {
+    align-items: center;
+    padding-bottom: 0;
+    text-align: center;
+  }
+
+  .banner-section1 .btn {
+    margin-top: var(--space-2xl);
+  }
+
+  .bouncing-image {
+    height: 26rem;
+  }
+
+  .banner-section3 {
+    align-items: center;
+    padding-bottom: 0;
+    text-align: center;
+  }
+
+  .image-container {
+    justify-content: center;
+  }
+
+  .paras p {
+    margin-inline: auto;
+  }
+
+  .socials {
+    justify-content: center;
+    margin-top: var(--space-2xl);
   }
 }
 
@@ -564,22 +692,24 @@
   background-color: #000;
 }
 
-/* =================================
-   COLLECTION BANNER
-================================= */
-
+/* collection banner */
 .collection-banner {
-  position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
   gap: var(--space-xl);
-  min-height: 22rem;
-  margin-top: var(--space-4xl);
-  padding: var(--space-3xl);
-  border-radius: var(--radius-xl);
-  background: radial-gradient(circle at center, #4a4a4a 0%, #000 70%);
+  width: 95%;
+  margin: var(--space-4xl) auto 0;
+  padding-inline: 3.75rem;
+  border-radius: 2.5rem;
+  background: radial-gradient(
+    ellipse at 55% 30%,
+    #4d4d4d 0%,
+    #1c1c1c 55%,
+    #000 100%
+  );
   color: #fff;
+  padding-top: 40px;
 }
 
 .collection-banner .offer {
@@ -587,35 +717,53 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-xl);
+  padding-block: var(--space-3xl);
 }
 
 .collection-banner .offer h1 {
+  max-width: 14rem;
   font-size: var(--font-size-h2);
-  line-height: 1.2;
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+.collection-banner .offer h1 span {
+  font-weight: 400;
 }
 
 .collection-banner .btn {
-  background-color: #fff;
-  color: #000;
-  border-color: #fff;
+  min-width: 11.5rem;
+  min-height: 3.5rem;
+  padding-inline: var(--space-2xl);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #3d3d3d 0%, #161616 100%);
+  color: #fff;
+  font-size: var(--font-size-large);
 }
 
+/* ---------- middle: model on top of the big X ---------- */
 .collection-modal {
   align-self: end;
   display: flex;
   justify-content: center;
+  background: url("images/background.webp") no-repeat center top / auto 84%;
 }
 
 .collection-modal img {
-  width: 100%;
-  max-width: 22rem;
-  margin-top: -4rem; /* model rises above the banner edge */
-  object-fit: contain;
+  display: block;
+  height: clamp(14rem, 21vw, 26rem);
+  object-position: bottom;
+}
+
+.collection-banner > .collection-content {
+  align-self: end;
+  max-width: 21rem;
+  padding-bottom: 5rem;
 }
 
 .collection-content p {
-  font-size: var(--font-size-small);
-  line-height: 1.6;
+  font-size: 0.75rem;
+  line-height: 1.5;
 }
 
 /* testimonial section - client */
@@ -642,7 +790,7 @@
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  aspect-ratio: 364 / 549; /* grows if the review text is longer */
+  /* aspect-ratio: 364 / 549; grows if the review text is longer */
   padding: 10px;
   border: 1px solid #999;
   border-radius: 10px;
@@ -655,6 +803,7 @@
   background-position: right bottom;
   background-clip: border-box;
   background-origin: border-box;
+  padding-bottom: 50px;
 }
 
 /* name, role and review use Poppins like the Figma design */
@@ -686,8 +835,8 @@
 }
 
 .client-carousel-card img {
-  width: 49.5cqw; /* 180px */
-  height: 49.5cqw;
+  width: 50cqw; /* 180px */
+  height: 50cqw;
   margin-top: 6.5cqw;
   border-radius: 50%;
   object-fit: cover;

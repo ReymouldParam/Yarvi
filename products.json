@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "name": "Stylish Blazer",
+    "price": 4500,
+    "image": "images/carousel/1.webp",
+    "categories": ["men", "trending"]
+  },
+  {
+    "id": 2,
+    "name": "Classic Shirt",
+    "price": 1800,
+    "image": "images/carousel/2.webp",
+    "categories": ["men", "new"]
+  },
+  {
+    "id": 3,
+    "name": "Linen Kurta",
+    "price": 2200,
+    "image": "images/carousel/3.webp",
+    "categories": ["men", "trending", "new"]
+  },
+  {
+    "id": 4,
+    "name": "Casual Jacket",
+    "price": 3900,
+    "image": "images/carousel/4.webp",
+    "categories": ["men"]
+  },
+  {
+    "id": 5,
+    "name": "Formal Trousers",
+    "price": 2100,
+    "image": "images/carousel/1.webp",
+    "categories": ["men"]
+  },
+  {
+    "id": 6,
+    "name": "Denim Jacket",
+    "price": 3400,
+    "image": "images/carousel/2.webp",
+    "categories": ["men", "new"]
+  },
+  {
+    "id": 7,
+    "name": "Bandhgala Suit",
+    "price": 8900,
+    "image": "images/carousel/3.webp",
+    "categories": ["men", "trending"]
+  },
+  {
+    "id": 8,
+    "name": "Cotton Chinos",
+    "price": 1900,
+    "image": "images/carousel/4.webp",
+    "categories": ["men"]
+  },
+  {
+    "id": 9,
+    "name": "Silk Saree",
+    "price": 6800,
+    "image": "images/carousel/1.webp",
+    "categories": ["women", "trending"]
+  },
+  {
+    "id": 10,
+    "name": "Summer Dress",
+    "price": 2900,
+    "image": "images/carousel/2.webp",
+    "categories": ["women", "new"]
+  },
+  {
+    "id": 11,
+    "name": "Printed Kurti",
+    "price": 1600,
+    "image": "images/carousel/3.webp",
+    "categories": ["women", "trending"]
+  },
+  {
+    "id": 12,
+    "name": "Bridal Lehenga",
+    "price": 14500,
+    "image": "images/carousel/4.webp",
+    "categories": ["women", "trending", "new"]
+  },
+  {
+    "id": 13,
+    "name": "Palazzo Set",
+    "price": 2300,
+    "image": "images/carousel/1.webp",
+    "categories": ["women"]
+  },
+  {
+    "id": 14,
+    "name": "Silk Blouse",
+    "price": 2000,
+    "image": "images/carousel/2.webp",
+    "categories": ["women", "new"]
+  },
+  {
+    "id": 15,
+    "name": "Anarkali Suit",
+    "price": 5200,
+    "image": "images/carousel/3.webp",
+    "categories": ["women", "trending"]
+  },
+  {
+    "id": 16,
+    "name": "Kids Sherwani",
+    "price": 3200,
+    "image": "images/carousel/4.webp",
+    "categories": ["children", "new"]
+  },
+  {
+    "id": 17,
+    "name": "Kids Kurta Set",
+    "price": 1500,
+    "image": "images/carousel/1.webp",
+    "categories": ["children"]
+  },
+  {
+    "id": 18,
+    "name": "Party Frock",
+    "price": 1700,
+    "image": "images/carousel/2.webp",
+    "categories": ["children", "new"]
+  },
+  {
+    "id": 19,
+    "name": "Denim Dungarees",
+    "price": 1400,
+    "image": "images/carousel/3.webp",
+    "categories": ["children"]
+  },
+  {
+    "id": 20,
+    "name": "Kids Blazer",
+    "price": 2600,
+    "image": "images/carousel/4.webp",
+    "categories": ["children", "trending"]
+  }
+]

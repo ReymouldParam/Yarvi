@@ -33,64 +33,127 @@
     <div class="main-container">
       <div class="head-container">
         <header class="header-section">
-          <img src="images/logo.webp" alt="logo" />
-          <nav class="header-navbar">
-            <div class="home-container">
-              <!-- <img
-                class="logo-animation"
-                src="images/yarvi_logo.webp"
-                alt="yarvi-img-logo"
-              /> -->
-              <p>HOME</p>
-            </div>
-            <p>ABOUT US</p>
-            <p>SHOP</p>
-            <p>BLOG</p>
-            <p>CONTACT</p>
+          <a class="header-logo" href="index.html">
+            <img src="images/logo.webp" alt="Yarvi - Wear Your Identity" />
+          </a>
+
+          <nav class="header-nav" aria-label="Main">
+            <ul class="header-navbar">
+              <li class="nav-home">
+                <a href="index.html" aria-current="page">
+                  <img
+                    class="logo-animation"
+                    src="images/yarvi_logo.webp"
+                    alt=""
+                  />
+                  <span>HOME</span>
+                </a>
+              </li>
+              <li><a href="about.html">ABOUT US</a></li>
+              <li><a href="shop.html">SHOP</a></li>
+              <li><a href="blog.html">BLOG</a></li>
+              <li><a href="contact.html">CONTACT</a></li>
+            </ul>
           </nav>
+
           <div class="icons-container">
-            <i class="bi bi-search"></i>
-            <i class="bi bi-bag"></i>
-            <i class="bi bi-person"></i>
+            <button class="icon-btn" type="button" aria-label="Search">
+              <i class="bi bi-search" aria-hidden="true"></i>
+            </button>
+            <a
+              class="icon-btn cart-link"
+              href="cart.html"
+              aria-label="Cart, 2 items"
+            >
+              <i class="bi bi-bag" aria-hidden="true"></i>
+              <span class="cart-count" aria-hidden="true">0</span>
+            </a>
+            <a class="icon-btn" href="account.html" aria-label="My account">
+              <i class="bi bi-person" aria-hidden="true"></i>
+            </a>
           </div>
         </header>
-        <hr />
+
         <div class="banner-content">
           <div class="banner-section1">
-            <h1>Wear Your Identity</h1>
+            <h1>Wear Your <span>Identity</span></h1>
             <p>
               Discover premium outfits crafted for comfort, confidence, and
-              everydat elegance
+              everyday elegance.
             </p>
-            <button class="btn">Explore Now</button>
+            <a class="btn" href="#categories">Explore Now</a>
           </div>
+
           <div class="banner-section2">
             <div class="bouncing-image-container">
               <img
                 class="bouncing-image"
                 src="images/p1.png"
-                alt="header-person-image"
+                alt="Man in a dark oversized sweatshirt sitting on a stool"
               />
             </div>
           </div>
+
           <div class="banner-section3">
             <div class="image-container">
-              <img src="images/p2.webp" alt="header-person-image" />
-              <img src="images/p3.webp" alt="header-person-image" />
+              <img src="images/p2.webp" alt="Man in a rust-brown jacket" />
+              <img src="images/p3.webp" alt="Woman in a pale green saree" />
             </div>
+
             <div class="paras">
-              <h1>New Collection</h1>
+              <h2 class="hero-collection-title">
+                <span class="first-span">New</span>
+                <span class="second-span">Collection</span>
+              </h2>
               <p>
-                Discover premium outfits crafted for comfort, confidence and
-                everyday elegance
+                Discover premium outfits crafted for comfort, confidence, and
+                everyday elegance.
               </p>
             </div>
-            <div class="socials">
-              <i class="fa-brands fa-facebook-f"></i>
-              <i class="fa-brands fa-instagram"></i>
-              <i class="fa-brands fa-linkedin-in"></i>
-              <i class="fa-brands fa-pinterest"></i>
-            </div>
+
+            <!-- replace the placeholder URLs with Yarvi's real pages -->
+            <ul class="socials" aria-label="Follow Yarvi on social media">
+              <li>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Yarvi on Facebook"
+                >
+                  <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Yarvi on Instagram"
+                >
+                  <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Yarvi on LinkedIn"
+                >
+                  <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.pinterest.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Yarvi on Pinterest"
+                >
+                  <i class="fa-brands fa-pinterest" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -220,112 +283,72 @@
           </p>
         </div>
         <div class="collection-category">
-          <button class="btn">MEN</button>
-          <button class="btn">WOMEN</button>
-          <button class="btn">TRENDING</button>
-          <button class="btn">NEW</button>
-          <button class="btn">CHILDREN</button>
+          <button
+            class="btn"
+            type="button"
+            data-category="men"
+            aria-pressed="true"
+          >
+            MEN
+          </button>
+          <button
+            class="btn"
+            type="button"
+            data-category="women"
+            aria-pressed="false"
+          >
+            WOMEN
+          </button>
+          <button
+            class="btn"
+            type="button"
+            data-category="trending"
+            aria-pressed="false"
+          >
+            TRENDING
+          </button>
+          <button
+            class="btn"
+            type="button"
+            data-category="new"
+            aria-pressed="false"
+          >
+            NEW
+          </button>
+          <button
+            class="btn"
+            type="button"
+            data-category="children"
+            aria-pressed="false"
+          >
+            CHILDREN
+          </button>
         </div>
         <div class="carousel-container">
-          <div class="carousel-track">
-            <div class="carousel">
-              <img src="images/carousel/1.webp" alt="person" />
-              <div class="carousel-content">
-                <div class="product-info">
-                  <p>Stylish Blazer</p>
-                  <p>INR 4.5K</p>
-                </div>
-                <button class="carousel-btn">Shop Now</button>
-              </div>
-            </div>
-            <div class="carousel">
-              <img src="images/carousel/2.webp" alt="person" />
-              <div class="carousel-content">
-                <div class="product-info">
-                  <p>Stylish Blazer</p>
-                  <p>INR 4.5K</p>
-                </div>
-                <button class="carousel-btn">Shop Now</button>
-              </div>
-            </div>
-            <div class="carousel">
-              <img src="images/carousel/3.webp" alt="person" />
-              <div class="carousel-content">
-                <div class="product-info">
-                  <p>Stylish Blazer</p>
-                  <p>INR 4.5K</p>
-                </div>
-                <button class="carousel-btn">Shop Now</button>
-              </div>
-            </div>
-            <div class="carousel">
-              <img src="images/carousel/4.webp" alt="person" />
-              <div class="carousel-content">
-                <div class="product-info">
-                  <p>Stylish Blazer</p>
-                  <p>INR 4.5K</p>
-                </div>
-                <button class="carousel-btn">Shop Now</button>
-              </div>
-            </div>
-            <div class="carousel">
-              <img src="images/carousel/2.webp" alt="person" />
-              <div class="carousel-content">
-                <div class="product-info">
-                  <p>Stylish Blazer</p>
-                  <p>INR 4.5K</p>
-                </div>
-                <button class="carousel-btn">Shop Now</button>
-              </div>
-            </div>
-            <div class="carousel">
-              <img src="images/carousel/2.webp" alt="person" />
-              <div class="carousel-content">
-                <div class="product-info">
-                  <p>Stylish Blazer</p>
-                  <p>INR 4.5K</p>
-                </div>
-                <button class="carousel-btn">Shop Now</button>
-              </div>
-            </div>
-            <div class="carousel">
-              <img src="images/carousel/2.webp" alt="person" />
-              <div class="carousel-content">
-                <div class="product-info">
-                  <p>Stylish Blazer</p>
-                  <p>INR 4.5K</p>
-                </div>
-                <button class="carousel-btn">Shop Now</button>
-              </div>
-            </div>
-            <div class="carousel">
-              <img src="images/carousel/2.webp" alt="person" />
-              <div class="carousel-content">
-                <div class="product-info">
-                  <p>Stylish Blazer</p>
-                  <p>INR 4.5K</p>
-                </div>
-                <button class="carousel-btn">Shop Now</button>
-              </div>
-            </div>
-            <div class="carousel">
-              <img src="images/carousel/2.webp" alt="person" />
-              <div class="carousel-content">
-                <div class="product-info">
-                  <p>Stylish Blazer</p>
-                  <p>INR 4.5K</p>
-                </div>
-                <button class="carousel-btn">Shop Now</button>
-              </div>
-            </div>
-          </div>
+          <p class="carousel-status" role="status"></p>
+          <div class="carousel-track"></div>
           <div class="carousel-controls">
-            <button class="carousel-prev">&larr;</button>
+            <button class="carousel-prev" type="button" aria-label="Previous">
+              &larr;
+            </button>
             <div class="carousel-dots"></div>
-            <button class="carousel-next">&rarr;</button>
+            <button class="carousel-next" type="button" aria-label="Next">
+              &rarr;
+            </button>
           </div>
         </div>
-
+        <template id="product-template">
+          <div class="carousel">
+            <img src="" alt="" loading="lazy" />
+            <div class="carousel-content">
+              <div class="product-info">
+                <p class="product-name"></p>
+                <p class="product-price"></p>
+              </div>
+              <button class="carousel-btn" type="button">Shop Now</button>
+            </div>
+          </div>
+        </template>
         <div class="collection-banner">
           <div class="offer">
             <h1>All Yarvi Best Collection Get 20% Off</h1>
@@ -491,17 +514,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script type="text/javascript">
-      $(".carousel-track").slick({
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 3,
-        dots: true,
-        appendDots: $(".carousel-dots"),
-        arrows: true,
-        prevArrow: $(".carousel-prev"),
-        nextArrow: $(".carousel-next"),
-        dotsClass: "slick-dots",
-      });
       $(".client-carousel").slick({
         infinite: true,
         slidesToShow: 4,
@@ -512,5 +524,6 @@
         nextArrow: $(".client-next"),
       });
     </script>
+    <script src="js/main.js"></script>
   </body>
 </html>

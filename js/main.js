@@ -54,7 +54,7 @@
 
   const productSliderOptions = {
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 3,
     dots: true,
     appendDots: $(".carousel-dots"),
